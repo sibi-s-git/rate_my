@@ -1,0 +1,9 @@
+Flask==2.2.2              
+Flask-SQLAlchemy          
+Flask-Migrate              
+Flask-Login          
+python-dotenv          
+Werkzeug==2.2.2          
+psycopg2
+Flask-Migrate
+python-dotenv

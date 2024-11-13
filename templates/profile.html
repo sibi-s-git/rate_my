@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>User Profile</h1>
+
+    {% if current_user.is_authenticated %}
+        <p>Username: {{ current_user.username }}</p>
+        <p>Daily Hearts Left: {{ current_user.daily_hearts }}</p>
+        <p>Total Likes: {{ current_user.total_likes }}</p>
+        <p>Total Loves: {{ current_user.total_loves }}</p>
+        <p>Total Dislikes: {{ current_user.total_dislikes }}</p>
+
+        <form action="{{ url_for('user.upload') }}" method="POST" enctype="multipart/form-data">
+            <button type="submit">Upload Photo</button>
+        </form>
+
+        <a href="{{ url_for('user.logout') }}">Logout</a>
+    {% else %}
+        <a href="{{ url_for('user.login') }}">Login</a>
+        <a href="{{ url_for('user.register') }}">Register</a>
+    {% endif %}
+</body>
+</html>

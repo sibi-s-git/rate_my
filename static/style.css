@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+.buttons, .upload-buttons {
+    margin: 20px 0;
+}
+
+.button, .profile-button, .back-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.photo-item, .upload-item {
+    margin: 10px;
+    display: inline-block;
+}
+
+img {
+    max-width: 100px;
+    height: auto;
+    margin-top: 10px;
+}

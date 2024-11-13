@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View {{ category }}</title>
+</head>
+<body>
+    <h1>{{ category | capitalize }} Photos</h1>
+
+    {% for photo in photos %}
+        <div>
+            <img src="{{ photo.url }}" alt="Photo {{ photo.id }}" style="width:200px;height:auto;">
+            <p>Likes: {{ photo.likes }} | Loves: {{ photo.loves }} | Dislikes: {{ photo.dislikes }}</p>
+
+            <form action="{{ url_for('view.react', photo_id=photo.id, reaction='like') }}" method="POST">
+                <button type="submit">Like</button>
+            </form>
+            <form action="{{ url_for('view.react', photo_id=photo.id, reaction='love') }}" method="POST">
+                <button type="submit">Love</button>
+            </form>
+            <form action="{{ url_for('view.react', photo_id=photo.id, reaction='dislike') }}" method="POST">
+                <button type="submit">Dislike</button>
+            </form>
+            
+            <h4>Comments:</h4>
+            <ul>
+                {% for comment in photo.comments %}
+                    <li>{{ comment }}</li>
+                {% endfor %}
+            </ul>
+
+            <form action="{{ url_for('view.comment', photo_id=photo.id) }}" method="POST">
+                <input type="text" name="comment" placeholder="Add a comment" required>
+                <button type="submit">Comment</button>
+            </form>
+        </div>
+    {% endfor %}
+</body>
+</html>
