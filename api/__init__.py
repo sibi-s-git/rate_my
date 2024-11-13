@@ -37,4 +37,5 @@ def create_app():
 # Minimal user_loader function to satisfy Flask-Login
 @login_manager.user_loader
 def load_user(user_id):
-    return None  # Ensures login is required each session without persisting user data
+    from api.models.user import User  # Import inside the function
+    return User.query.get(int(user_id))
